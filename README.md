@@ -85,24 +85,49 @@ Desain tampilan buku untuk anggota telah diperbaharui dari `GridPane` tradisiona
 | **Maven** | Alat manajemen proyek dan build untuk mengelola dependensi dan siklus hidup proyek |
 
 ## 📁 Struktur Folder Proyek
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       ├── controller/          # Kelas-kelas kontroler JavaFX
-│   │   │       ├── DAO/                 # Data Access Objects
-│   │   │       ├── model/               # Model data entities
-│   │   │       ├── Service/             # Kelas layanan logika bisnis
-│   │   │       ├── util/                # Kelas utilitas dan helper
-│   │   │       └── App.java             # Main application class
-│   │   └── resources/
-│   │       └── com/
-│   │           └── view/                # File FXML untuk UI
-│   └── test/                            # Test source code
-├── .vscode/                             # VS Code configuration
-├── README.md                            # Project documentation
-├── pom.xml                              # Maven POM file
-└── target/                              # Maven build output
+📦 sistem-perpustakaan-digital/
+├── 📂 src/
+│   ├── 📂 main/                                    # Berisi kode sumber utama aplikasi
+│   │   ├── 📂 java/                                # Kode sumber Java utama
+│   │   │   └── 📂 com/
+│   │   │       ├── 📂 controller/                  # Kelas-kelas kontroler JavaFX
+│   │   │       │   ├── 📄 AdminController.java
+│   │   │       │   ├── 📄 MemberController.java
+│   │   │       │   └── 📄 LoginController.java
+│   │   │       ├── 📂 DAO/                         # Data Access Objects
+│   │   │       │   ├── 📄 BukuDAO.java
+│   │   │       │   ├── 📄 MemberDAO.java
+│   │   │       │   └── 📄 TransaksiDAO.java
+│   │   │       ├── 📂 model/                       # Model data entities
+│   │   │       │   ├── 📄 Buku.java
+│   │   │       │   ├── 📄 Member.java
+│   │   │       │   └── 📄 Transaksi.java
+│   │   │       ├── 📂 Service/                     # Kelas layanan logika bisnis
+│   │   │       │   ├── 📄 BukuService.java
+│   │   │       │   └── 📄 TransaksiService.java
+│   │   │       ├── 📂 util/                        # Kelas utilitas dan helper
+│   │   │       │   ├── 📄 DatabaseConnection.java
+│   │   │       │   └── 📄 DatabaseInitializer.java
+│   │   │       └── 📄 App.java                     # Main application class
+│   │   └── 📂 resources/                           # Sumber daya non-Java
+│   │       └── 📂 com/
+│   │           └── 📂 view/                        # File FXML untuk UI
+│   │               ├── 📄 login.fxml
+│   │               ├── 📄 admin-dashboard.fxml
+│   │               └── 📄 member-dashboard.fxml
+│   └── 📂 test/                                    # Test source code
+│       └── 📂 java/
+│           └── 📂 com/
+│               └── 📄 AppTest.java
+├── 📂 .vscode/                                     # VS Code configuration
+│   ├── 📄 launch.json
+│   └── 📄 settings.json
+├── 📄 README.md                                    # Project documentation
+├── 📄 pom.xml                                      # Maven POM file
+└── 📂 target/                                      # Maven build output
+├── 📂 classes/
+├── 📂 generated-sources/
+└── 📄 sistem-perpustakaan-digital-1.0.jar
 
 ## 🚀 Cara Menjalankan Aplikasi
 
