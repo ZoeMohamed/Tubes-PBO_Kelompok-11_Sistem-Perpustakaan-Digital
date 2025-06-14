@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.AdminUserManagementController" style="-fx-padding: 20;">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #34495e; -fx-padding: 10;">
+         <Button fx:id="backButton" onAction="#handleBack" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-background-radius: 5;" text="← Kembali" />
+         <Label text="Kelola Member" textFill="white">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+         </Label>
+      </HBox>
+   </top>
+   
+   <center>
+      <VBox spacing="20.0" style="-fx-background-color: #ecf0f1;">
+         <!-- Search and Filter Section -->
+         <HBox spacing="10.0" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+            <TextField fx:id="searchField" promptText="Cari member..." prefWidth="200.0"/>
+            <Button fx:id="searchButton" onAction="#handleSearch" style="-fx-background-color: #3498db; -fx-text-fill: white;" text="Cari"/>
+            <ComboBox fx:id="statusFilter" promptText="Filter Status" prefWidth="150.0"/>
+            <Button fx:id="addUserButton" onAction="#handleAddMember" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" text="+ Tambah Member"/>
+         </HBox>
+
+         <!-- Member Table -->
+         <TableView fx:id="userTable" VBox.vgrow="ALWAYS">
+            <columns>
+               <TableColumn fx:id="idColumn" text="ID" prefWidth="100"/>
+               <TableColumn fx:id="usernameColumn" text="Username" prefWidth="150"/>
+               <TableColumn fx:id="nameColumn" text="Nama Lengkap" prefWidth="200"/>
+               <TableColumn fx:id="emailColumn" text="Email" prefWidth="200"/>
+               <TableColumn fx:id="phoneColumn" text="No. Telepon" prefWidth="150"/>
+               <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+               <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="150"/>
+            </columns>
+         </TableView>
+      </VBox>
+   </center>
+</BorderPane> 

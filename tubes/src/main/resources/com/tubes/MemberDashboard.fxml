@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.MemberDashboardController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="80.0" spacing="20.0" style="-fx-background-color: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%); -fx-padding: 20;">
+         <children>
+            <VBox>
+               <children>
+                  <Label text="Member Dashboard" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="welcomeLabel" text="Welcome, Member" textFill="#E8E8E8">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 20; -fx-padding: 10;" text="Logout">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <TabPane tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="My Books">
+               <content>
+                  <VBox spacing="20.0" style="-fx-background-color: #f8f9fa;">
+                     <children>
+                        <!-- Borrowed Books -->
+                        <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 20;">
+                           <children>
+                              <Label text="Borrowed Books" textFill="#666666">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="borrowedBooksTable" prefHeight="300.0" style="-fx-background-color: transparent;">
+                                 <columns>
+                                    <TableColumn fx:id="bookIdColumn" prefWidth="100.0" text="ID" />
+                                    <TableColumn fx:id="bookTitleColumn" prefWidth="200.0" text="Title" />
+                                    <TableColumn fx:id="borrowDateColumn" prefWidth="150.0" text="Borrow Date" />
+                                    <TableColumn fx:id="dueDateColumn" prefWidth="150.0" text="Due Date" />
+                                    <TableColumn fx:id="statusColumn" prefWidth="100.0" text="Status" />
+                                    <TableColumn fx:id="actionColumn" prefWidth="100.0" text="Action" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                        
+                        <!-- Book Search -->
+                        <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 20;">
+                           <children>
+                              <Label text="Search Books" textFill="#666666">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="searchField" HBox.hgrow="ALWAYS" promptText="Search by title, author, or category" style="-fx-background-radius: 10; -fx-padding: 10;" />
+                                    <Button fx:id="searchButton" mnemonicParsing="false" onAction="#handleSearch" style="-fx-background-color: linear-gradient(45deg, #11998e, #38ef7d); -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 10 20; -fx-cursor: hand;" text="Search">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="searchResultsTable" prefHeight="300.0" style="-fx-background-color: transparent;">
+                                 <columns>
+                                    <TableColumn fx:id="searchIdColumn" prefWidth="100.0" text="ID" />
+                                    <TableColumn fx:id="searchTitleColumn" prefWidth="200.0" text="Title" />
+                                    <TableColumn fx:id="searchAuthorColumn" prefWidth="150.0" text="Author" />
+                                    <TableColumn fx:id="searchCategoryColumn" prefWidth="150.0" text="Category" />
+                                    <TableColumn fx:id="searchStatusColumn" prefWidth="100.0" text="Status" />
+                                    <TableColumn fx:id="searchActionColumn" prefWidth="100.0" text="Action" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+            
+            <Tab text="Profile">
+               <content>
+                  <VBox spacing="20.0" style="-fx-background-color: #f8f9fa;">
+                     <children>
+                        <!-- Profile Information -->
+                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 20;">
+                           <children>
+                              <Label text="Profile Information" textFill="#666666">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              
+                              <GridPane hgap="15.0" vgap="15.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                       <children>
+                                          <Label text="Name" textFill="#666666">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="nameField" promptText="Enter your name" style="-fx-background-radius: 10; -fx-padding: 10;" />
+                                       </children>
+                                    </VBox>
+                                    
+                                    <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                       <children>
+                                          <Label text="Email" textFill="#666666">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="emailField" promptText="Enter your email" style="-fx-background-radius: 10; -fx-padding: 10;" />
+                                       </children>
+                                    </VBox>
+                                    
+                                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Phone" textFill="#666666">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="phoneField" promptText="Enter your phone" style="-fx-background-radius: 10; -fx-padding: 10;" />
+                                       </children>
+                                    </VBox>
+                                    
+                                    <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Member ID" textFill="#666666">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="memberIdField" editable="false" promptText="Your member ID" style="-fx-background-radius: 10; -fx-padding: 10;" />
+                                       </children>
+                                    </VBox>
+                                    
+                                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Address" textFill="#666666">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextArea fx:id="addressArea" prefRowCount="3" promptText="Enter your address" style="-fx-background-radius: 10; -fx-padding: 10;" wrapText="true" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </GridPane>
+                              
+                              <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="updateProfileButton" mnemonicParsing="false" onAction="#handleUpdateProfile" style="-fx-background-color: linear-gradient(45deg, #11998e, #38ef7d); -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 10 20; -fx-cursor: hand;" text="Update Profile">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="changePasswordButton" mnemonicParsing="false" onAction="#handleChangePassword" style="-fx-background-color: linear-gradient(45deg, #3f5efb, #fc466b); -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 10 20; -fx-cursor: hand;" text="Change Password">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        
+                        <!-- Borrowing History -->
+                        <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 20;">
+                           <children>
+                              <Label text="Borrowing History" textFill="#666666">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="historyTable" prefHeight="200.0" style="-fx-background-color: transparent;">
+                                 <columns>
+                                    <TableColumn fx:id="historyBookColumn" prefWidth="200.0" text="Book" />
+                                    <TableColumn fx:id="historyBorrowDateColumn" prefWidth="150.0" text="Borrow Date" />
+                                    <TableColumn fx:id="historyReturnDateColumn" prefWidth="150.0" text="Return Date" />
+                                    <TableColumn fx:id="historyStatusColumn" prefWidth="100.0" text="Status" />
+                                    <TableColumn fx:id="historyActionColumn" prefWidth="100.0" text="Action" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

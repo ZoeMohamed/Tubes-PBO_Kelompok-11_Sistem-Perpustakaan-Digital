@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.HistoryController" style="-fx-padding: 20;">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #34495e; -fx-padding: 15;">
+         <Button fx:id="backButton" onAction="#handleBack" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-background-radius: 5;" text="← Kembali" />
+         <Label text="History Peminjaman" textFill="white">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+         </Label>
+      </HBox>
+   </top>
+
+   <center>
+      <VBox spacing="20.0" style="-fx-background-color: #ecf0f1;">
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+
+         <!-- Filter Tabs -->
+         <HBox spacing="5.0">
+            <!-- Hapus tombol filter dan atribut onAction yang tidak ada di controller -->
+            <!-- Contoh: <Button fx:id="allButton" onAction="#handleShowAll" ... /> -->
+            <!-- Contoh: <Button fx:id="borrowedButton" onAction="#handleShowBorrowed" ... /> -->
+            <!-- Contoh: <Button fx:id="returnedButton" onAction="#handleShowReturned" ... /> -->
+            <!-- Contoh: <Button fx:id="pendingButton" onAction="#handleShowPending" ... /> -->
+         </HBox>
+
+         <!-- History List Container -->
+         <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25;">
+            <Label text="Riwayat Peminjaman Buku" textFill="#2c3e50">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+
+            <!-- Table Header -->
+            <HBox spacing="10.0" style="-fx-background-color: #34495e; -fx-background-radius: 5; -fx-padding: 10;">
+               <Label prefWidth="50.0" text="No." textFill="white">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Label>
+               <Label prefWidth="250.0" text="Judul Buku" textFill="white">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Label>
+               <Label prefWidth="120.0" text="Tgl. Pinjam" textFill="white">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Label>
+               <Label prefWidth="120.0" text="Tgl. Kembali" textFill="white">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Label>
+               <Label prefWidth="100.0" text="Status" textFill="white">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Label>
+            </HBox>
+
+            <!-- Scrollable History List -->
+            <ScrollPane fitToWidth="true" prefHeight="400.0" style="-fx-background-color: transparent;">
+               <content>
+                  <VBox fx:id="historyList" spacing="5.0" />
+               </content>
+            </ScrollPane>
+
+            <!-- Empty State -->
+            <VBox fx:id="emptyState" alignment="CENTER" spacing="10.0" visible="false">
+               <Label text="📚" textFill="#95a5a6">
+                  <font>
+                     <Font size="48.0" />
+                  </font>
+               </Label>
+               <Label text="Belum ada riwayat peminjaman" textFill="#7f8c8d">
+                  <font>
+                     <Font name="System Bold" size="16.0" />
+                  </font>
+               </Label>
+               <Label text="Mulai pinjam buku untuk melihat riwayat di sini" textFill="#95a5a6">
+                  <font>
+                     <Font size="12.0" />
+                  </font>
+               </Label>
+            </VBox>
+         </VBox>
+      </VBox>
+   </center>
+</BorderPane> 

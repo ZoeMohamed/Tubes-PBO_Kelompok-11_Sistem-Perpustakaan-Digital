@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Priority?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.AddBookController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #34495e; -fx-padding: 10;">
+         <Button fx:id="backButton" onAction="#handleBack" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-background-radius: 5;" text="← Kembali" />
+         <Label text="Tambah Buku Baru" textFill="white">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+         </Label>
+      </HBox>
+   </top>
+   
+   <center>
+      <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: #ecf0f1;">
+         <content>
+            <VBox spacing="25.0" style="-fx-background-color: #ecf0f1;" VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </padding>
+               
+               <!-- Form Container -->
+               <VBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 30;" VBox.vgrow="ALWAYS">
+                  <Label text="Informasi Buku" textFill="#2c3e50">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  
+                  <HBox spacing="30.0">
+                     <!-- Removed Left Side - Book Image section -->
+                     
+                     <!-- Right Side - Book Details Form -->
+                     <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                        <GridPane hgap="15.0" vgap="15.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" minWidth="120.0" />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                           </columnConstraints>
+                           
+                           <!-- Title -->
+                           <Label text="Judul Buku:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <TextField fx:id="titleField" prefHeight="35.0" promptText="Masukkan judul buku" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                           
+                           <!-- ISBN -->
+                           <Label text="ISBN:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <TextField fx:id="isbnField" prefHeight="35.0" promptText="Masukkan ISBN" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           
+                           <!-- Author -->
+                           <Label text="Penulis:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <TextField fx:id="authorField" prefHeight="35.0" promptText="Masukkan nama penulis" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           
+                           <!-- Publication Year -->
+                           <Label text="Tahun Terbit:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <TextField fx:id="yearField" prefHeight="35.0" promptText="YYYY" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           
+                           <!-- Genre -->
+                           <Label text="Genre:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <ComboBox fx:id="genreComboBox" prefHeight="35.0" prefWidth="200.0" promptText="Pilih genre" style="-fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           
+                           <!-- Category -->
+                           <Label text="Kategori:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <ComboBox fx:id="categoryComboBox" prefHeight="35.0" prefWidth="200.0" promptText="Pilih kategori" style="-fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           
+                           <!-- Stock -->
+                           <Label text="Jumlah Buku:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="6">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <TextField fx:id="stockField" prefHeight="35.0" promptText="Jumlah stok" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                           
+                           <!-- Publisher -->
+                           <Label text="Penerbit:" textFill="#34495e" GridPane.columnIndex="0" GridPane.rowIndex="7">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <TextField fx:id="publisherField" prefHeight="35.0" promptText="Nama penerbit" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        </GridPane>
+                        
+                        <!-- Description -->
+                        <VBox spacing="8.0">
+                           <Label text="Deskripsi:" textFill="#34495e">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <TextArea fx:id="descriptionArea" prefRowCount="4" promptText="Masukkan deskripsi buku..." style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;" wrapText="true" />
+                        </VBox>
+                     </VBox>
+                  </HBox>
+                  
+                  <!-- Error/Success Message -->
+                  <Label fx:id="messageLabel" textFill="#e74c3c" visible="false">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  
+                  <!-- Action Buttons -->
+                  <HBox alignment="CENTER" spacing="20.0">
+                     <Button fx:id="confirmButton" onAction="#handleConfirm" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;" text="✓ Tambah Buku">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Button>
+                     
+                     <Button fx:id="clearButton" onAction="#handleClear" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 5;" text="🔄 Reset">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Button>
+                     
+                     <Button fx:id="cancelButton" onAction="#handleCancel" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 5;" text="✗ Batal">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Button>
+                  </HBox>
+               </VBox>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane> 

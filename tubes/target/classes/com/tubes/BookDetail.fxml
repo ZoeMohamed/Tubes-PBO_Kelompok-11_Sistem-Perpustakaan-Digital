@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.BookDetailController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #34495e; -fx-padding: 10;">
+         <Button fx:id="backButton" onAction="#handleBack" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-background-radius: 5;" text="← Kembali" />
+         <Label text="Detail Buku" textFill="white">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+         </Label>
+      </HBox>
+   </top>
+   
+   <center>
+      <ScrollPane fitToWidth="true" style="-fx-background-color: #ecf0f1;">
+         <content>
+            <VBox spacing="20.0">
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </padding>
+               
+               <!-- Book Info Section -->
+               <HBox spacing="30.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25;">
+                  <!-- Book Cover -->
+                  <VBox alignment="CENTER" spacing="10.0">
+                     
+                     <!-- Action Buttons (Member/Admin) -->
+                     <VBox alignment="CENTER" spacing="8.0">
+                        <!-- Member Buttons -->
+                        <Button fx:id="borrowButton" onAction="#handleBorrow" prefWidth="180.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;" text="📚 Pinjam Buku" visible="false" />
+                        
+                        <!-- Admin Buttons -->
+                        <Button fx:id="editButton" onAction="#handleEdit" prefWidth="180.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 5;" text="✏️ Edit Buku" visible="false" />
+                        <Button fx:id="deleteButton" onAction="#handleDelete" prefWidth="180.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5;" text="🗑️ Hapus Buku" visible="false" />
+                     </VBox>
+                  </VBox>
+                  
+                  <!-- Book Details -->
+                  <VBox spacing="15.0" VBox.vgrow="ALWAYS">
+                     <Label fx:id="titleLabel" text="Judul Buku" textFill="#2c3e50">
+                        <font>
+                           <Font name="System Bold" size="24.0" />
+                        </font>
+                     </Label>
+                     
+                     <VBox spacing="8.0">
+                        <HBox spacing="10.0">
+                           <Label text="ISBN:" textFill="#7f8c8d">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="isbnLabel" text="978-xxx-xxx-xxx" textFill="#34495e" />
+                        </HBox>
+                        
+                        <HBox spacing="10.0">
+                           <Label text="Penulis:" textFill="#7f8c8d">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="authorLabel" text="Nama Penulis" textFill="#34495e" />
+                        </HBox>
+                        
+                        <HBox spacing="10.0">
+                           <Label text="Tahun Terbit:" textFill="#7f8c8d">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="yearLabel" text="2023" textFill="#34495e" />
+                        </HBox>
+                        
+                        <HBox spacing="10.0">
+                           <Label text="Genre:" textFill="#7f8c8d">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="genreLabel" text="Fiksi" textFill="#34495e" />
+                        </HBox>
+                        
+                        <HBox spacing="10.0">
+                           <Label text="Kategori:" textFill="#7f8c8d">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="categoryLabel" text="Novel" textFill="#34495e" />
+                        </HBox>
+                        
+                        <HBox spacing="10.0">
+                           <Label text="Stok Tersedia:" textFill="#7f8c8d">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="stockLabel" text="5" textFill="#27ae60">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                        </HBox>
+                     </VBox>
+                     
+                     <!-- Description -->
+                     <VBox spacing="8.0">
+                        <Label text="Deskripsi:" textFill="#7f8c8d">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="descriptionArea" editable="false" prefRowCount="4" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6;" text="Deskripsi buku akan ditampilkan di sini..." wrapText="true" />
+                     </VBox>
+                  </VBox>
+               </HBox>
+               
+               <!-- Review Section -->
+               <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25;">
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <Label text="Ulasan Buku" textFill="#2c3e50">
+                        <font>
+                           <Font name="System Bold" size="18.0" />
+                        </font>
+                     </Label>
+                     
+                     <!-- Add Review Button (Member Only) -->
+                     <Region HBox.hgrow="ALWAYS" />
+                     <Button fx:id="addReviewButton" onAction="#handleAddReview" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5;" text="+ Tambah Ulasan" visible="false" />
+                  </HBox>
+                  
+                  <!-- Add Review Form (initially hidden) -->
+                  <VBox fx:id="reviewForm" spacing="10.0" style="-fx-background-color: #f8f9fa; -fx-background-radius: 5; -fx-padding: 15;" visible="false">
+                     <Label text="Tulis Ulasan Anda:" textFill="#555555">
+                        <font>
+                           <Font name="System Bold" size="12.0" />
+                        </font>
+                     </Label>
+                     <TextArea fx:id="reviewTextArea" prefRowCount="3" promptText="Bagikan pengalaman Anda membaca buku ini..." />
+                     <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Label text="Rating:" textFill="#555555" />
+                        <ComboBox fx:id="ratingComboBox" promptText="Pilih Rating" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="submitReviewButton" onAction="#handleSubmitReview" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 3;" text="Kirim Ulasan" />
+                        <Button fx:id="cancelReviewButton" onAction="#handleCancelReview" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 3;" text="Batal" />
+                     </HBox>
+                  </VBox>
+                  
+                  <!-- Reviews List -->
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <Label text="Semua Ulasan" textFill="#2c3e50">
+                        <font>
+                           <Font name="System Bold" size="18.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="averageRatingLabel" text="(Belum ada rating)" textFill="#7f8c8d" />
+                  </HBox>
+                  <ScrollPane fitToWidth="true" maxHeight="400.0" style="-fx-background-color: transparent;">
+                     <content>
+                        <VBox fx:id="reviewsList" spacing="10.0" />
+                     </content>
+                  </ScrollPane>
+               </VBox>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane> 

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.GuestController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="80.0" spacing="20.0" style="-fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -fx-padding: 20;">
+         <children>
+            <VBox>
+               <children>
+                  <Label text="Digital Library" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="Welcome Guest" textFill="#E8E8E8">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="CENTER" spacing="30.0" style="-fx-background-color: linear-gradient(to bottom, #f7f7f7, #e8e8e8);">
+         <children>
+            <VBox alignment="CENTER" spacing="20.0">
+               <Button fx:id="backButton" text="← Kembali ke Login" onAction="#handleBack" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-background-radius: 5;" />
+               <VBox alignment="CENTER" spacing="15.0">
+                  <children>
+                     <Label text="Explore Our Digital Library" textAlignment="CENTER">
+                        <font>
+                           <Font name="System Bold" size="32.0" />
+                        </font>
+                     </Label>
+                     <Label text="Discover thousands of books, journals, and digital resources" textAlignment="CENTER" textFill="#666666">
+                        <font>
+                           <Font size="16.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </VBox>
+               
+               <HBox alignment="CENTER" spacing="40.0">
+                  <children>
+                     <!-- Browse Books Card -->
+                     <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 30; -fx-cursor: hand;">
+                        <children>
+                           <Label text="Browse Books" textAlignment="CENTER">
+                              <font>
+                                 <Font name="System Bold" size="18.0" />
+                              </font>
+                           </Label>
+                           <Label text="Explore our collection of digital books and resources" textAlignment="CENTER" textFill="#666666" wrapText="true">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <Button fx:id="browseButton" mnemonicParsing="false" onAction="#handleBrowseBooks" style="-fx-background-color: linear-gradient(45deg, #667eea, #764ba2); -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 10 20; -fx-cursor: hand;" text="Browse Now">
+                              <font>
+                                 <Font name="System Bold" size="14.0" />
+                              </font>
+                           </Button>
+                        </children>
+                     </VBox>
+                     
+                     <!-- Join Library Card -->
+                     <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 30; -fx-cursor: hand;">
+                        <children>
+                           <Label text="Join Library" textAlignment="CENTER">
+                              <font>
+                                 <Font name="System Bold" size="18.0" />
+                              </font>
+                           </Label>
+                           <Label text="Register now to access premium features and borrow books" textAlignment="CENTER" textFill="#666666" wrapText="true">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegister" style="-fx-background-color: linear-gradient(45deg, #11998e, #38ef7d); -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 10 20; -fx-cursor: hand;" text="Register">
+                              <font>
+                                 <Font name="System Bold" size="14.0" />
+                              </font>
+                           </Button>
+                        </children>
+                     </VBox>
+                     
+                     <!-- Member Login Card -->
+                     <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 30; -fx-cursor: hand;">
+                        <children>
+                           <Label text="Member Login" textAlignment="CENTER">
+                              <font>
+                                 <Font name="System Bold" size="18.0" />
+                              </font>
+                           </Label>
+                           <Label text="Access your account and manage your borrowed books" textAlignment="CENTER" textFill="#666666" wrapText="true">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" style="-fx-background-color: linear-gradient(45deg, #fc466b, #3f5efb); -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 10 20; -fx-cursor: hand;" text="Login">
+                              <font>
+                                 <Font name="System Bold" size="14.0" />
+                              </font>
+                           </Button>
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+               
+               <!-- Quick Stats -->
+               <HBox alignment="CENTER" spacing="60.0">
+                  <children>
+                     <VBox alignment="CENTER">
+                        <children>
+                           <Label text="10,000+" textFill="#667eea">
+                              <font>
+                                 <Font name="System Bold" size="28.0" />
+                              </font>
+                           </Label>
+                           <Label text="Books Available" textFill="#666666">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER">
+                        <children>
+                           <Label text="500+" textFill="#11998e">
+                              <font>
+                                 <Font name="System Bold" size="28.0" />
+                              </font>
+                           </Label>
+                           <Label text="Active Members" textFill="#666666">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER">
+                        <children>
+                           <Label text="24/7" textFill="#fc466b">
+                              <font>
+                                 <Font name="System Bold" size="28.0" />
+                              </font>
+                           </Label>
+                           <Label text="Digital Access" textFill="#666666">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="60.0" style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+         <children>
+            <Label text="© 2025 Digital Library System. All rights reserved." textFill="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane> 
